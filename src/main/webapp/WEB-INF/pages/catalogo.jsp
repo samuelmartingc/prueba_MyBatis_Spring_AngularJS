@@ -41,6 +41,7 @@
   <td>{{curso.titulo}}</td>
   <td>{{curso.nivel}}</td> 
   <td>{{curso.numhoras}}</td>
+  <td><a href="http://blogandweb.com/nombre-real.pdf" download>Descargar</a> </td>
 </tr>
 </tbody>
 </table>

@@ -25,7 +25,7 @@
     <mappers>
 	   <mapper resource="Curso.xml"/>
 	   <mapper resource="Profesor.xml"/>
-	   
+	   <mapper resource="Temario.xml"/>
     </mappers>
 	
 

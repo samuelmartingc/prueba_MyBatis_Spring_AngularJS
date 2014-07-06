@@ -81,16 +81,5 @@ public class Curso {
         this.idtemario = idtemario;
     }
 
-/*
-    public String toString(){
-		StringBuilder sb = new StringBuilder();
-		sb.append("Id = ").append(id).append(" - ");
-		sb.append("Name = ").append(name).append(" - ");
-		sb.append("Phone = ").append(phone).append(" - ");
-		sb.append("Email = ").append(email);
-		return sb.toString();
-	}
-	*/
-	
 	
 }

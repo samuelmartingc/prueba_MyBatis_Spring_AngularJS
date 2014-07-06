@@ -4,28 +4,41 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.stereotype.Component;
-import sam.pruebaautentia.model.Profesor;
+import sam.pruebaautentia.model.Temario;
+
 @Component
-public class ProfesorDAO {
+public class TemarioDAO {
 	
 	private SqlSessionFactory sqlSessionFactory; 
 	
-	public ProfesorDAO(){
+	public TemarioDAO(){
 		sqlSessionFactory = MyBatisConnectionFactory.getSqlSessionFactory();
 	}
 	
 
 	/**
-	 * Returns the list of all Profesor instances from the database.
-	 * @return the list of all Profesor instances from the database.
+	 * Returns the list of all Temario instances from the database.
+	 * @return the list of all Temario instances from the database.
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Profesor> selectAll(){
+	public List<Temario> selectAll(){
 
 		SqlSession session = sqlSessionFactory.openSession();
 		
 		try {
-			List<Profesor> list = session.selectList("Profesor.getAll");
+			List<Temario> list = session.selectList("Temario.getAll");
+			return list;
+		} finally {
+			session.close();
+		}
+	}
+        
+        public List<Temario> selectAllActivos(){
+
+		SqlSession session = sqlSessionFactory.openSession();
+		
+		try {
+			List<Temario> list = session.selectList("Temario.getAllActivos");
 			return list;
 		} finally {
 			session.close();
@@ -33,16 +46,16 @@ public class ProfesorDAO {
 	}
 
 	/**
-	 * Returns a Profesor instance from the database.
+	 * Returns a Temario instance from the database.
 	 * @param id primary key value used for lookup.
-	 * @return A Profesor instance with a primary key value equals to pk. null if there is no matching row.
+	 * @return A Temario instance with a primary key value equals to pk. null if there is no matching row.
 	 */
-	public Profesor selectById(int id){
+	public Temario selectById(int id){
 
 		SqlSession session = sqlSessionFactory.openSession();
 		
 		try {
-			Profesor curso = (Profesor) session.selectOne("Profesor.getById",id);
+			Temario curso = (Temario) session.selectOne("Temario.getById",id);
 			return curso;
 		} finally {
 			session.close();
@@ -50,15 +63,15 @@ public class ProfesorDAO {
 	}
 
 	/**
-	 * Updates an instance of Profesor in the database.
+	 * Updates an instance of Temario in the database.
 	 * @param curso the instance to be updated.
 	 */
-	public void update(Profesor curso){
+	public void update(Temario curso){
 
 		SqlSession session = sqlSessionFactory.openSession();
 		
 		try {
-			session.update("Profesor.update", curso);
+			session.update("Temario.update", curso);
 			session.commit();
 		} finally {
 			session.close();
@@ -66,15 +79,15 @@ public class ProfesorDAO {
 	}
 
 	/**
-	 * Insert an instance of Profesor into the database.
+	 * Insert an instance of Temario into the database.
 	 * @param curso the instance to be persisted.
 	 */
-	public void insert(Profesor curso){
+	public void insert(Temario curso){
 
 		SqlSession session = sqlSessionFactory.openSession();
 		
 		try {
-			session.insert("Profesor.insert", curso);
+			session.insert("Temario.insert", curso);
 			session.commit();
 		} finally {
 			session.close();
@@ -82,7 +95,7 @@ public class ProfesorDAO {
 	}
 
 	/**
-	 * Delete an instance of Profesor from the database.
+	 * Delete an instance of Temario from the database.
 	 * @param id primary key value of the instance to be deleted.
 	 */
 	public void delete(int id){
@@ -90,7 +103,7 @@ public class ProfesorDAO {
 		SqlSession session = sqlSessionFactory.openSession();
 		
 		try {
-			session.delete("Profesor.deleteById", id);
+			session.delete("Temario.deleteById", id);
 			session.commit();
 		} finally {
 			session.close();
