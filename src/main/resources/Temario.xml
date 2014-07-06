@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Temario">
+	
+	<resultMap id="result" type="Temario">
+	    <result property="idtemario" column="idtemario"/>
+	    <result property="nombre" column="nombre"/>
+	    <result property="archivo" column="archivo"/>
+    </resultMap>
+	
+	
+    <select id="getAll" resultMap="result">
+    	SELECT * FROM temario
+    </select>
+    
+    <select id="getById" parameterType="int" resultMap="result">
+    	SELECT * FROM temario WHERE idtemario = #{idtemario}
+  	</select>
+    
+    <delete id="deleteById" parameterType="int">
+    	DELETE from temario WHERE idtemario = #{idtemario};
+    </delete>
+
+    <insert id="insert" parameterType="Temario">
+        INSERT INTO temario (idtemario, nombre, archivo) 
+		VALUES (#{idtemario}, #{nombre}, #{archivo});
+      <selectKey keyProperty="id" resultType="int" order="AFTER">
+		select last_insert_id() as id
+	  </selectKey>
+    </insert>
+
+	<update id="update" parameterType="Temario">
+	  	UPDATE temario
+		SET
+			nombre = #{nombre}, 
+			archivo = #{archivo}
+		WHERE idtemario = #{idtemario};
+  </update>
+
+</mapper>

@@ -1,8 +1,12 @@
 package sam.pruebaautentia.controller;
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -12,12 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
 import sam.pruebaautentia.dao.CursoDAO;
 import sam.pruebaautentia.dao.ProfesorDAO;
-
+import sam.pruebaautentia.dao.TemarioDAO;
 import sam.pruebaautentia.model.Curso;
 import sam.pruebaautentia.model.Profesor;
+import sam.pruebaautentia.model.Temario;
 
 @Controller
 public class CursosController {
@@ -27,6 +31,9 @@ public class CursosController {
     
     @Autowired
     ProfesorDAO profesorDAO;
+    
+    @Autowired
+    TemarioDAO temarioDAO;
     
 	@RequestMapping(value="/")
 	public ModelAndView mainPage() {
@@ -38,8 +45,45 @@ public class CursosController {
 		return new ModelAndView("home");
 	}
         
+        
+        
+        @RequestMapping("/download/{temarioId}")
+    public String download(@PathVariable("temarioId")
+            Integer temarioId, HttpServletResponse response) {
+         
+        Temario tem = temarioDAO.selectById(temarioId);
+        try {
+            response.setHeader("Content-Disposition", "inline;filename=\"" +tem.getNombre()+ "\"");
+            OutputStream out = response.getOutputStream();
+            //response.setContentType(tem.getContentType());
+            response.setContentType("pdf");
+            IOUtils.copy(tem.getArchivo().getBinaryStream(), out);
+            out.flush();
+            out.close();
+         
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+         
+         
+        return null;
+    }
+        
+        
+        
+        
+        
+        
+        
+        
+        
         @RequestMapping("/catalogo.json")
         public @ResponseBody List<List<Curso>> getCatalogoList() {
+            
+            
+            
             
             List<Curso> lista = cursoDAO.selectAllActivos(); // no coje los que no estan activos
             List<List<Curso>> listaDeListas = new ArrayList();

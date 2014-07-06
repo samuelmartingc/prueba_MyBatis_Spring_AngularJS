@@ -8,6 +8,7 @@
 	<typeAliases>
 		<typeAlias alias="Curso" type="sam.pruebaautentia.model.Curso"/>
 		<typeAlias alias="Profesor" type="sam.pruebaautentia.model.Profesor"/>
+                <typeAlias alias="Temario" type="sam.pruebaautentia.model.Temario"/>
 	</typeAliases>
 	
 	<environments default="development">
@@ -25,6 +26,7 @@
     <mappers>
 	   <mapper resource="Curso.xml"/>
 	   <mapper resource="Profesor.xml"/>
+           <mapper resource="Temario.xml"/>
 	   
     </mappers>
 	

@@ -69,7 +69,7 @@
   </div>
 </div>
      
-     
+     <a href=<c:url value="/download/1" /> class="btn btn-default btn-block btn-lg">Ver Catálogo</a>
      
 
      </div>
