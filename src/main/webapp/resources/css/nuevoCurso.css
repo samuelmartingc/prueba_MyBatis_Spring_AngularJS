@@ -1,0 +1,16 @@
+
+p.mensaje {
+    margin: 15px 0 5px 0;
+    padding: 10px 5px 10px 25px;
+    border-radius: 5px;
+}
+
+p.correcto {
+    background: #d7fbe5;
+    border: 1px solid green;
+}
+
+p.fallo {
+    background: #fbdad5;
+    border: 1px solid red;
+}
