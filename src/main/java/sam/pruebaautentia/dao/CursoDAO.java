@@ -71,7 +71,7 @@ public class CursoDAO {
 		SqlSession session = sqlSessionFactory.openSession();
 		
 		try {
-			session.update("Curso.update", curso);
+			session.update("Cursot.update", curso);
 			session.commit();
 		} finally {
 			session.close();

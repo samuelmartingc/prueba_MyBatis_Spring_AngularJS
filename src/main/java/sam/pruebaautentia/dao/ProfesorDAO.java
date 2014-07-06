@@ -58,7 +58,7 @@ public class ProfesorDAO {
 		SqlSession session = sqlSessionFactory.openSession();
 		
 		try {
-			session.update("Profesor.update", curso);
+			session.update("Profesort.update", curso);
 			session.commit();
 		} finally {
 			session.close();
