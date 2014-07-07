@@ -8,13 +8,6 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-/**
- * MyBatis Connection Factory, which reads the configuration data from a XML file.
- * 
- * @author Loiane Groner
- * http://loianegroner.com (English)
- * http://loiane.com (Portuguese)
- */
 public class MyBatisConnectionFactory {
 
 	private static SqlSessionFactory sqlSessionFactory;
@@ -22,7 +15,6 @@ public class MyBatisConnectionFactory {
 	static {
 
 		try {
-
 			String resource = "SqlMapConfig.xml";
 			Reader reader = Resources.getResourceAsReader(resource);
 
@@ -40,7 +32,6 @@ public class MyBatisConnectionFactory {
 	}
 
 	public static SqlSessionFactory getSqlSessionFactory() {
-
 		return sqlSessionFactory;
 	}
 

@@ -15,10 +15,6 @@ public class ProfesorDAO {
 	}
 	
 
-	/**
-	 * Returns the list of all Profesor instances from the database.
-	 * @return the list of all Profesor instances from the database.
-	 */
 	@SuppressWarnings("unchecked")
 	public List<Profesor> selectAll(){
 
@@ -32,11 +28,6 @@ public class ProfesorDAO {
 		}
 	}
 
-	/**
-	 * Returns a Profesor instance from the database.
-	 * @param id primary key value used for lookup.
-	 * @return A Profesor instance with a primary key value equals to pk. null if there is no matching row.
-	 */
 	public Profesor selectById(int id){
 
 		SqlSession session = sqlSessionFactory.openSession();
@@ -49,10 +40,7 @@ public class ProfesorDAO {
 		}
 	}
 
-	/**
-	 * Updates an instance of Profesor in the database.
-	 * @param curso the instance to be updated.
-	 */
+
 	public void update(Profesor curso){
 
 		SqlSession session = sqlSessionFactory.openSession();
@@ -65,10 +53,6 @@ public class ProfesorDAO {
 		}
 	}
 
-	/**
-	 * Insert an instance of Profesor into the database.
-	 * @param curso the instance to be persisted.
-	 */
 	public void insert(Profesor curso){
 
 		SqlSession session = sqlSessionFactory.openSession();
@@ -81,10 +65,7 @@ public class ProfesorDAO {
 		}
 	}
 
-	/**
-	 * Delete an instance of Profesor from the database.
-	 * @param id primary key value of the instance to be deleted.
-	 */
+
 	public void delete(int id){
 
 		SqlSession session = sqlSessionFactory.openSession();

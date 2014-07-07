@@ -1,7 +1,6 @@
 package sam.pruebaautentia.model;
 
-import com.mysql.jdbc.Blob;
-
+import java.sql.Blob;
 
 public class Temario {
 

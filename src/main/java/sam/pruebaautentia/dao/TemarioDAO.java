@@ -16,10 +16,6 @@ public class TemarioDAO {
 	}
 	
 
-	/**
-	 * Returns the list of all Temario instances from the database.
-	 * @return the list of all Temario instances from the database.
-	 */
 	@SuppressWarnings("unchecked")
 	public List<Temario> selectAll(){
 
@@ -45,11 +41,7 @@ public class TemarioDAO {
 		}
 	}
 
-	/**
-	 * Returns a Temario instance from the database.
-	 * @param id primary key value used for lookup.
-	 * @return A Temario instance with a primary key value equals to pk. null if there is no matching row.
-	 */
+
 	public Temario selectById(int id){
 
 		SqlSession session = sqlSessionFactory.openSession();
@@ -62,10 +54,7 @@ public class TemarioDAO {
 		}
 	}
 
-	/**
-	 * Updates an instance of Temario in the database.
-	 * @param curso the instance to be updated.
-	 */
+
 	public void update(Temario curso){
 
 		SqlSession session = sqlSessionFactory.openSession();
@@ -78,10 +67,7 @@ public class TemarioDAO {
 		}
 	}
 
-	/**
-	 * Insert an instance of Temario into the database.
-	 * @param curso the instance to be persisted.
-	 */
+
 	public void insert(Temario curso){
 
 		SqlSession session = sqlSessionFactory.openSession();
@@ -94,10 +80,7 @@ public class TemarioDAO {
 		}
 	}
 
-	/**
-	 * Delete an instance of Temario from the database.
-	 * @param id primary key value of the instance to be deleted.
-	 */
+
 	public void delete(int id){
 
 		SqlSession session = sqlSessionFactory.openSession();

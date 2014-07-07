@@ -1,10 +1,7 @@
 package sam.pruebaautentia.controller;
-
 import java.util.Properties;
-
 import javax.annotation.Resource;
 import javax.sql.DataSource;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -24,17 +21,14 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 @ComponentScan("sam.pruebaautentia")
 @EnableWebMvc
 @EnableTransactionManagement
-//@PropertySource("classpath:application.properties")
 public class WebAppConfig extends WebMvcConfigurerAdapter {
-	
-    
+
 	
 	@Bean
 	public UrlBasedViewResolver setupViewResolver() {
 		UrlBasedViewResolver resolver = new UrlBasedViewResolver();
 		resolver.setPrefix("/WEB-INF/pages/");
 		resolver.setSuffix(".jsp");
-                
 		resolver.setViewClass(JstlView.class);
 		return resolver;
 	}
@@ -44,7 +38,5 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
             registry.addResourceHandler("/css/**").addResourceLocations("/resources/css/");
             registry.addResourceHandler("/js/**").addResourceLocations("/resources/js/");
             registry.addResourceHandler("/img/**").addResourceLocations("/resources/img/");
-            
         }
-
 }

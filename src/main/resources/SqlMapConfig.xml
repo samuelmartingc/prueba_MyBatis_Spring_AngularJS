@@ -5,28 +5,28 @@
 
 <configuration>
 
-	<typeAliases>
-		<typeAlias alias="Curso" type="sam.pruebaautentia.model.Curso"/>
-		<typeAlias alias="Profesor" type="sam.pruebaautentia.model.Profesor"/>
-                <typeAlias alias="Temario" type="sam.pruebaautentia.model.Temario"/>
-	</typeAliases>
+    <typeAliases>
+        <typeAlias alias="Curso" type="sam.pruebaautentia.model.Curso"/>
+        <typeAlias alias="Profesor" type="sam.pruebaautentia.model.Profesor"/>
+        <typeAlias alias="Temario" type="sam.pruebaautentia.model.Temario"/>
+    </typeAliases>
 	
-	<environments default="development">
-		<environment id="development">
-		  <transactionManager type="JDBC"/>
-			<dataSource type="POOLED">
-				<property name="driver" value="com.mysql.jdbc.Driver"/>
-				<property name="url" value="jdbc:mysql://localhost:3306/cursosautentia"/>
-				<property name="username" value="sam"/>
-				<property name="password" value="sam"/>
-			</dataSource>
-	   </environment>
-	</environments>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/cursosautentia"/>
+                <property name="username" value="sam"/>
+                <property name="password" value="sam"/>
+            </dataSource>
+        </environment>
+    </environments>
 	
     <mappers>
-	   <mapper resource="Curso.xml"/>
-	   <mapper resource="Profesor.xml"/>
-           <mapper resource="Temario.xml"/>
+        <mapper resource="Curso.xml"/>
+        <mapper resource="Profesor.xml"/>
+        <mapper resource="Temario.xml"/>
 	   
     </mappers>
 	
